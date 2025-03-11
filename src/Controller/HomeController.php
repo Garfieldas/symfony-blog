@@ -35,4 +35,11 @@ class HomeController extends AbstractController
         ['article' => $article, 'author' => $author]);
     }
 
+    #[Route('/create', name: 'create-article')]
+    public function create(): Response
+    {
+        return $this->render('pages/create-article.html.twig');
+    }
+
+
 }
