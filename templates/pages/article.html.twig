@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %} Home {% endblock %}
+{% block title %} {{ article.title }} {% endblock %}
 {% block content %}
     <!-- Wrapper -->
     <div id="wrapper">
@@ -10,7 +10,7 @@
 
                 <!-- Logo -->
                 <a href="/" class="logo">
-                    <span class="symbol"><img src="{{ asset('assets/images/icon.png') }}" alt="" /></span><span class="title">Symfony blog</span>
+                    <span class="symbol"><img src="{{ asset('assets/images/icon.png') }}" alt="logo" /></span><span class="title">Phantom</span>
                 </a>
 
                 <!-- Nav -->
@@ -38,26 +38,10 @@
         <!-- Main -->
         <div id="main">
             <div class="inner">
-                <header>
-                    <h1>This is symfony blog website<br />
-                        to practise web app development.</h1>
-                    <p>All the blogs a fetched from database</p>
-                </header>
-                <section class="tiles">
-                {% for article in articles %}
-                    <article class="style{{ random(1, 6) }}">
-									<span class="image">
-										<img src="{{ article.coverPath }}" alt="" />
-									</span>
-                        <a href="/article/{{ article.id }}">
-                            <h2>{{ article.title }}</h2>
-                            <div class="content">
-                                <p>{{ article.paragprah }}</p>
-                            </div>
-                        </a>
-                    </article>
-                {% endfor %}
-                </section>
+                <h1>{{ article.title }}</h1>
+                <span class="image main"><img src="{{ article.imagePath }}" alt="" /></span>
+                <p>{{ article.paragprah }}</p>
+                <h2>Author: {{ author.name }} {{ author.lastname }}</h2>
             </div>
         </div>
 
