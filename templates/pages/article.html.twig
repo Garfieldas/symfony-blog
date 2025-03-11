@@ -1,39 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %} {{ article.title }} {% endblock %}
 {% block content %}
-    <!-- Wrapper -->
-    <div id="wrapper">
-
-        <!-- Header -->
-        <header id="header">
-            <div class="inner">
-
-                <!-- Logo -->
-                <a href="/" class="logo">
-                    <span class="symbol"><img src="{{ asset('assets/images/icon.png') }}" alt="logo" /></span><span class="title">Phantom</span>
-                </a>
-
-                <!-- Nav -->
-                <nav>
-                    <ul>
-                        <li><a href="#menu">Menu</a></li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>
-
-        <!-- Menu -->
-        <nav id="menu">
-            <h2>Menu</h2>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="generic.html">Ipsum veroeros</a></li>
-                <li><a href="generic.html">Tempus etiam</a></li>
-                <li><a href="generic.html">Consequat dolor</a></li>
-                <li><a href="elements.html">Elements</a></li>
-            </ul>
-        </nav>
 
         <!-- Main -->
         <div id="main">
@@ -44,14 +11,4 @@
                 <h2>Author: {{ author.name }} {{ author.lastname }}</h2>
             </div>
         </div>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <p class="copyright">
-                &copy; Grafieldas All rights reserved
-            </p>
-            <!-- </div> -->
-        </footer>
-
-    </div>
 {% endblock %}

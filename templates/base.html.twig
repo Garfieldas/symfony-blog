@@ -13,6 +13,12 @@
         {% endblock %}
     </head>
     <body class="is-preload">
+    <div id="wrapper">
+        {% include 'partials/header.html.twig' %}
+        {% include 'partials/navbar.html.twig' %}
+
         {% block content %}{% endblock %}
+        {% include 'partials/footer.html.twig' %}
+    </div>
     </body>
 </html>
