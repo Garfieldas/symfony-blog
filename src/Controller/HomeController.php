@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticleRepository;
 use App\Repository\AuthorRepository;
+use App\Form\ArticleFormType;
 
 class HomeController extends AbstractController
 {
@@ -38,7 +40,10 @@ class HomeController extends AbstractController
     #[Route('/create', name: 'create-article')]
     public function create(): Response
     {
-        return $this->render('pages/create-article.html.twig');
+        $article = new Article();
+        $form = $this->createForm(ArticleFormType::class, $article);
+        return $this->render('pages/create-article.html.twig',
+        ['form' => $form->createView()]);
     }
 
 
