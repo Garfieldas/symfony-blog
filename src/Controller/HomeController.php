@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -80,6 +81,18 @@ class HomeController extends AbstractController
         }
         return $this->render('pages/create-article.html.twig',
         ['form' => $form->createView()]);
+    }
+    #[Route('/update/{id}', name: 'update-article')]
+    public function update($id): Response
+    {
+        $article = $this->articleRepository->find($id);
+        $form = $this->createForm(ArticleFormType::class, $article);
+        $imagePath = $article->getImagePath();
+        $coverPath = $article->getCoverPath();
+        $form->setData($article);
+        return $this->render('pages/update-article.html.twig',
+        ['form' => $form->createView()]);
+
     }
 
 }

@@ -31,9 +31,11 @@ class ArticleFormType extends AbstractType
             ])
             ->add('imagePath', FileType::class, [
                 'label' => 'Upload your own article image!',
+                'data_class' => null,
             ])
             ->add('coverPath', FileType::class, [
                 'label' => 'Upload your own article cover!',
+                'data_class' => null,
             ])
             ->add('author', EntityType::class, [
                 'class' => Author::class,

@@ -9,6 +9,9 @@
                 <span class="image main"><img src="{{ article.imagePath }}" alt="" /></span>
                 <p>{{ article.paragprah }}</p>
                 <h2>Author: {{ author.name }} {{ author.lastname }}</h2>
+                <h2>
+                <a href="/update/{{ article.id }}">Update Article</a>
+                </h2>
             </div>
         </div>
 {% endblock %}
