@@ -26,17 +26,23 @@ class ArticleFormType extends AbstractType
             ->add('paragprah', TextareaType::class, [
                 'attr' => array(
                     'placeholder' => 'Write your own paragraph!',
-                    'style' => 'min-height: 30.75em'
+                    'style' => 'min-height: 30.75em',
+                    'required' => false
                 )
             ])
-            ->add('imagePath', FileType::class, [
-                'label' => 'Upload your own article image!',
-                'data_class' => null,
-            ])
-            ->add('coverPath', FileType::class, [
-                'label' => 'Upload your own article cover!',
-                'data_class' => null,
-            ])
+            ->add('imagePath', FileType::class,
+                array(
+                    'required' => false,
+                    'mapped' => false,
+                    'label' => 'Upload your own article image!',
+                ),
+            )
+            ->add('coverPath', FileType::class,
+                array(
+                    'required' => false,
+                    'mapped' => false,
+                    'label' => 'Upload your cover image!',
+                ))
             ->add('author', EntityType::class, [
                 'class' => Author::class,
                 'choice_label' => 'id',
