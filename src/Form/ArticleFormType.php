@@ -27,8 +27,9 @@ class ArticleFormType extends AbstractType
                 'attr' => array(
                     'placeholder' => 'Write your own paragraph!',
                     'style' => 'min-height: 30.75em',
-                    'required' => false
-                )
+                    'required' => false,
+                ),
+                'label' => 'Paragraph',
             ])
             ->add('imagePath', FileType::class,
                 array(

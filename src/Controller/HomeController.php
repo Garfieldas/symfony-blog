@@ -74,6 +74,9 @@ class HomeController extends AbstractController
                 $newArticle->setImagePath('/uploads/' . $newFileName);
                 $newArticle->setCoverPath('/uploads/' . $newFileName2);
             }
+            if($newArticle->getImagePath() === null || $newArticle->getCoverPath() === null){
+                return new Response('Please upload an image file!');
+            }
             $this->manager->persist($newArticle);
             $this->manager->flush();
             return $this->redirectToRoute('home');
