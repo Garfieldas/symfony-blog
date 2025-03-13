@@ -18,7 +18,7 @@
                         <a href="/article/{{ article.id }}">
                             <h2>{{ article.title }}</h2>
                             <div class="content">
-                                <p>{{ article.paragprah }}</p>
+                                <p>{{ article.paragprah|slice(0, 300) }}</p>
                             </div>
                         </a>
                     </article>
