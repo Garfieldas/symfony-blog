@@ -151,4 +151,16 @@ class HomeController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    #[Route('/delete/{id}', name: 'delete-article')]
+    public function delete($id): Response
+    {
+        $article = $this->articleRepository->find($id);
+        $imageFullPath = $this->getParameter('kernel.project_dir') . '/public' . $article->getImagePath();
+        $coverFullPath = $this->getParameter('kernel.project_dir') . '/public' . $article->getCoverPath();
+        unlink($imageFullPath);
+        unlink($coverFullPath);
+        $this->manager->remove($article);
+        $this->manager->flush();
+        return $this->redirectToRoute('home');
+    }
 }
