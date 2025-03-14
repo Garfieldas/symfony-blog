@@ -5,6 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="{{ asset('assets/images/logo.png') }}">
+        <style>
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 100px;
+            }
+            h1{
+                text-align: center;
+            }
+        </style>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}

@@ -2,7 +2,11 @@
     <h2>Menu</h2>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/create">Write your own article</a></li>
-{#        <li><a href="generic.html">Tempus etiam</a></li>#}
+        {% if app.user  %}
+            <li><a href="/create">Write your own article</a></li>
+        {% endif %}
+        <li><a href="/{{ app.user ? 'logout' : 'login' }}">
+                {{ app.user ? 'Logout' : 'Login' }}
+            </a></li>
     </ul>
 </nav>

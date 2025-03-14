@@ -8,6 +8,7 @@
                     <h1>This is symfony blog website<br />
                         to practise web app development.</h1>
                     <p>All the blogs a fetched from database</p>
+                    <p style="font-size: 40px"> {{ app.user ?  app.user.username :  ''}}</p>
                 </header>
                 <section class="tiles">
                 {% for article in articles %}
